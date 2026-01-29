@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VN Reel Studio | Premium Templates</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            overflow: hidden;
+            background-color: #020617;
+        }
+        .font-outfit {
+            font-family: 'Outfit', sans-serif;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #ff0080, #7928ca);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+
+        /* Snap Scroll Layout */
+        .snap-container {
+            height: 100dvh;
+            overflow-y: auto;
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .snap-section {
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+            min-height: 100dvh; /* Full viewport height to ensure sections don't bleed into each other */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            opacity: 0;
+            transform: translateY(10px);
+            padding-top: 72px; /* Precision offset for fixed header height */
+        }
+
+        .snap-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .snap-section-long {
+            scroll-snap-align: start;
+            min-height: 100dvh;
+            opacity: 0;
+            transition: opacity 0.6s ease-out;
+            padding-top: 80px;
+        }
+        
+        .snap-section-long.is-visible {
+            opacity: 1;
+        }
+
+        /* Mobile specific fixes for header overlap */
+        @media (max-width: 640px) {
+            .snap-section {
+                /* Reduced from 100px to 72px to bring content slightly higher */
+                justify-content: center; 
+                padding-top: 72px; 
+                min-height: 100dvh;
+                height: 100dvh;
+                scroll-snap-align: start;
+            }
+            .snap-section-long {
+                padding-top: 80px;
+                scroll-snap-align: none;
+                min-height: auto;
+                height: auto;
+            }
+            .snap-container {
+                /* Keeping snap active on mobile for the hero and free sections */
+                scroll-snap-type: y mandatory;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .snap-section, .snap-section-long {
+                opacity: 1 !important;
+                transform: none !important;
+                transition: none !important;
+            }
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-slate-950 text-slate-200">
+    <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
